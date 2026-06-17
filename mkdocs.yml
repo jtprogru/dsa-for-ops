@@ -44,6 +44,7 @@ nav:
   - lab02 — список, очередь, дерево: lab02.md
   - lab02_random — баланс: lab02_random.md
   - lab03 — сортировки: lab03.md
+  - lab04 — поиск: lab04.md
 
 markdown_extensions:
   - admonition
