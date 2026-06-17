@@ -5,7 +5,7 @@ LABS := $(sort $(patsubst labs/%.py,%,$(wildcard labs/lab*.py)))
 # Имя лабораторной, переданное после `run` (например, `make run lab01`)
 RUN_ARGS := $(filter-out run,$(MAKECMDGOALS))
 
-.PHONY: help sync test run clean
+.PHONY: help sync test run clean docs docs-build
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -35,6 +35,13 @@ endif
 lab%:
 	@:
 
+docs: ## Запустить локальный сервер документации (http://127.0.0.1:8000)
+	uv run --group docs mkdocs serve
+
+docs-build: ## Собрать статический сайт документации в site/
+	uv run --group docs mkdocs build --strict
+
 clean: ## Удалить кэш и временные файлы
 	find . -type d -name __pycache__ -exec rm -rf {} +
 	find . -type d -name .pytest_cache -exec rm -rf {} +
+	rm -rf site
