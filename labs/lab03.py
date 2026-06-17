@@ -166,12 +166,52 @@ def bubble_sort(arr: list[int]) -> tuple[list[int], int]:
     return result, swaps
 
 
+def quick_sort(arr: list[int]) -> tuple[list[int], int]:
+    """Быстрая сортировка. Возвращает (отсортированный массив, число перестановок).
+
+    «Разделяй и властвуй»: за один проход (схема Ломуто) массив разбивается на
+    «меньше опорного» и «больше опорного», опорный ставится на своё место, затем
+    обе половины сортируются рекурсивно. Перестановкой считается обмен внутри
+    разбиения. Средняя сложность O(n·log n), худшая — O(n²).
+    """
+    result = list(arr)
+
+    def partition(low: int, high: int) -> tuple[int, int]:
+        pivot = result[high]
+        swaps = 0
+        i = low - 1
+        j = low
+        while j < high:
+            if result[j] <= pivot:
+                i += 1
+                if i != j:
+                    result[i], result[j] = result[j], result[i]
+                    swaps += 1
+            j += 1
+        if i + 1 != high:
+            result[i + 1], result[high] = result[high], result[i + 1]
+            swaps += 1
+        return i + 1, swaps
+
+    def sort(low: int, high: int) -> int:
+        if low >= high:
+            return 0
+        pivot_idx, swaps = partition(low, high)
+        swaps += sort(low, pivot_idx - 1)
+        swaps += sort(pivot_idx + 1, high)
+        return swaps
+
+    total_swaps = sort(0, array_length(result) - 1)
+    return result, total_swaps
+
+
 def compare_swaps(arr: list[int]) -> dict[str, int]:
     """Считает число перестановок для всех алгоритмов на одном массиве."""
     return {
         "Сортировка выбором": selection_sort(arr)[1],
         "Сортировка вставками": insertion_sort(arr)[1],
         "Пузырьковая сортировка": bubble_sort(arr)[1],
+        "Быстрая сортировка": quick_sort(arr)[1],
     }
 
 
@@ -188,7 +228,9 @@ def print_comparison(arr: list[int]) -> None:
         "Вывод: сортировка выбором всегда делает не больше n-1 перестановок, но\n"
         "выполняет максимум сравнений. Вставки и пузырёк зависят от исходного\n"
         "порядка: на почти отсортированных данных они выигрывают, на обратно\n"
-        "отсортированных — проигрывают. Все три алгоритма имеют сложность O(n²)."
+        "отсортированных — проигрывают. Эти три алгоритма имеют сложность O(n²).\n"
+        "Быстрая сортировка — «разделяй и властвуй» со средней сложностью\n"
+        "O(n·log n) и худшей O(n²); на больших массивах она вне конкуренции."
     )
 
 
@@ -203,6 +245,7 @@ def menu() -> None:
         "2": ("Сортировка выбором (через поиск минимума)", selection_sort_with_min),
         "3": ("Сортировка вставками", insertion_sort),
         "4": ("Пузырьковая сортировка", bubble_sort),
+        "5": ("Быстрая сортировка", quick_sort),
     }
 
     while True:
@@ -210,8 +253,8 @@ def menu() -> None:
         print("Меню:")
         for key, (name, _) in options.items():
             print(f"  {key}. {name}")
-        print("  5. Сравнить все алгоритмы по перестановкам")
-        print("  6. Сгенерировать новый массив")
+        print("  6. Сравнить все алгоритмы по перестановкам")
+        print("  7. Сгенерировать новый массив")
         print("  0. Выход")
 
         choice = input("Выберите пункт: ").strip()
@@ -226,10 +269,10 @@ def menu() -> None:
             print("Исходный:        ", arr)
             print("Отсортированный: ", sorted_arr)
             print("Перестановок:    ", swaps)
-        elif choice == "5":
+        elif choice == "6":
             print()
             print_comparison(arr)
-        elif choice == "6":
+        elif choice == "7":
             arr = generate_array(10)
             print("Сгенерирован новый массив:")
             print_array(arr)

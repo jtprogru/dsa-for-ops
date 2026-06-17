@@ -9,11 +9,18 @@ from labs.lab03 import (
     insertion_sort,
     print_array,
     print_comparison,
+    quick_sort,
     selection_sort,
     selection_sort_with_min,
 )
 
-SORTERS = [selection_sort, selection_sort_with_min, insertion_sort, bubble_sort]
+SORTERS = [
+    selection_sort,
+    selection_sort_with_min,
+    insertion_sort,
+    bubble_sort,
+    quick_sort,
+]
 
 
 class TestGenerateArray:
@@ -159,6 +166,7 @@ class TestCompareSwaps:
             "Сортировка выбором",
             "Сортировка вставками",
             "Пузырьковая сортировка",
+            "Быстрая сортировка",
         }
 
     def test_values_are_ints(self):
