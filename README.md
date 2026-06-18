@@ -1,5 +1,8 @@
 # mti-dsa
 
+[![tests](https://github.com/jtprogru/mti-dsa/actions/workflows/tests.yml/badge.svg)](https://github.com/jtprogru/mti-dsa/actions/workflows/tests.yml)
+[![docs](https://github.com/jtprogru/mti-dsa/actions/workflows/docs.yml/badge.svg)](https://github.com/jtprogru/mti-dsa/actions/workflows/docs.yml)
+
 Лабораторные работы по предмету «Алгоритмы и структуры данных».
 
 📖 Документация опубликована на GitHub Pages: **<https://jtprogru.github.io/mti-dsa/>**
