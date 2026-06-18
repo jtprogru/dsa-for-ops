@@ -315,7 +315,7 @@ def in_order(node):
 
         rows = height * 2 - 1            # между уровнями узлов — строка под ветки
         width = max(center(n) for n in positions) + margin + 1
-        grid = [[" "] * width for _ in range(rows)]   # «холст» из пробелов
+        grid = [[" "] * width for _ in custom_range(rows)]   # «холст» из пробелов
 
         for node, (_, depth) in positions.items():
             label = str(node.value)
@@ -353,4 +353,4 @@ def in_order(node):
   20  40 60  80
 ```
 
-Этот код **общий для lab02 и lab02_random** — он скопирован без изменений.
+Этот код **общий для lab02 и lab02_random**. Самописный `custom_range` (вместо запрещённого `range`) берётся из общего пакета — см. [common](common.md).
