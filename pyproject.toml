@@ -1,5 +1,5 @@
 [project]
-name = "mti-dsa"
+name = "dsa-for-ops"
 version = "0.1.0"
 description = "Структуры данных и алгоритмы (Python и Go), основы программирования и трек Go — база для будущих SRE/DevOps"
 readme = "README.md"

@@ -385,7 +385,7 @@ wheels = [
 ]
 
 [[package]]
-name = "mti-dsa"
+name = "dsa-for-ops"
 version = "0.1.0"
 source = { virtual = "." }
 

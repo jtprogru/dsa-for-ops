@@ -1,3 +1,3 @@
-module github.com/jtprogru/mti-dsa/src/golang/dsa
+module github.com/jtprogru/dsa-for-ops/src/golang/dsa
 
 go 1.23

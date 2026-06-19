@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/jtprogru/mti-dsa/src/golang/basics/l06-packages/mathx"
+	"github.com/jtprogru/dsa-for-ops/src/golang/basics/l06-packages/mathx"
 )
 
 func main() {

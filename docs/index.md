@@ -3,7 +3,7 @@ hide:
   - navigation
 ---
 
-# mti-dsa
+# dsa-for-ops
 
 База для будущих **SRE / DevOps / Ops**, которые хотят вырасти из bash-скриптов в инженеров-программистов. Репозиторий объединяет три направления:
 
@@ -64,4 +64,4 @@ make test                # тесты + coverage
 make docs                # локальный сервер документации на http://127.0.0.1:8000
 ```
 
-Исходники проекта: [github.com/jtprogru/mti-dsa](https://github.com/jtprogru/mti-dsa).
+Исходники проекта: [github.com/jtprogru/dsa-for-ops](https://github.com/jtprogru/dsa-for-ops).

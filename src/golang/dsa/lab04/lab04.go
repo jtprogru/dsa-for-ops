@@ -5,7 +5,7 @@
 // затем ищет — ровно как Python импортирует insertion_sort из lab03.
 package lab04
 
-import "github.com/jtprogru/mti-dsa/src/golang/dsa/lab03"
+import "github.com/jtprogru/dsa-for-ops/src/golang/dsa/lab03"
 
 // LinearContains сообщает, есть ли target в срезе (простой перебор).
 func LinearContains(arr []int, target int) bool {

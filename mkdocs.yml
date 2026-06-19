@@ -1,10 +1,10 @@
-site_name: mti-dsa — Алгоритмы, программирование и Go для SRE/DevOps
+site_name: dsa-for-ops — Алгоритмы, программирование и Go для SRE/DevOps
 site_description: Структуры данных и алгоритмы (Python и Go), основы программирования и трек Go — база для будущих SRE/DevOps
 site_author: Mikhail Savin
-site_url: https://jtprogru.github.io/mti-dsa/
+site_url: https://jtprogru.github.io/dsa-for-ops/
 
-repo_name: jtprogru/mti-dsa
-repo_url: https://github.com/jtprogru/mti-dsa
+repo_name: jtprogru/dsa-for-ops
+repo_url: https://github.com/jtprogru/dsa-for-ops
 edit_uri: edit/main/docs/
 
 docs_dir: docs

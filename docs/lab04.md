@@ -135,7 +135,7 @@ def build_sorted_sequence(values: list[int]) -> list[int]:
 
 ## Параллельная реализация на Go
 
-Линейный и бинарный поиск реализованы на Go в пакете [`src/golang/dsa/lab04`](https://github.com/jtprogru/mti-dsa/tree/main/src/golang/dsa/lab04). Как и в Python, `BinarySearchSorted` сортирует копию входа сортировкой вставками из пакета `lab03` и затем ищет. Ниже — сам бинарный поиск.
+Линейный и бинарный поиск реализованы на Go в пакете [`src/golang/dsa/lab04`](https://github.com/jtprogru/dsa-for-ops/tree/main/src/golang/dsa/lab04). Как и в Python, `BinarySearchSorted` сортирует копию входа сортировкой вставками из пакета `lab03` и затем ищет. Ниже — сам бинарный поиск.
 
 === "Python"
 

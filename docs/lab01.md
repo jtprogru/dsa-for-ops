@@ -203,7 +203,7 @@ print(stack.peek())   # 20 (новая вершина)
 
 ## Параллельная реализация на Go
 
-Те же структуры реализованы на Go в пакете [`src/golang/dsa/lab01`](https://github.com/jtprogru/mti-dsa/tree/main/src/golang/dsa/lab01) (с table-driven тестами в `lab01_test.go`). Отличия от Python: вместо исключений — возврат `error`, а стек обобщён через дженерики (`Stack[T any]`).
+Те же структуры реализованы на Go в пакете [`src/golang/dsa/lab01`](https://github.com/jtprogru/dsa-for-ops/tree/main/src/golang/dsa/lab01) (с table-driven тестами в `lab01_test.go`). Отличия от Python: вместо исключений — возврат `error`, а стек обобщён через дженерики (`Stack[T any]`).
 
 === "Python"
 
