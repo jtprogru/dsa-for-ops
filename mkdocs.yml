@@ -59,6 +59,7 @@ nav:
           - "Лекция 2. Управляющие конструкции и I/O": foundations/03-python-basics/lecture-02-control-flow-io.md
           - "Лекция 3. Коллекции": foundations/03-python-basics/lecture-03-collections.md
           - "Лекция 4. Кодировки, байты, машинное представление": foundations/03-python-basics/lecture-04-encodings-bytes.md
+          - "Разминочные упражнения: циклы и коллекции": foundations/03-python-basics/exercises-loops.md
       - "Тема 4. Процедуры и файлы":
           - foundations/04-procedures-and-files/index.md
           - "Лекция 1. Функции и область видимости": foundations/04-procedures-and-files/lecture-01-functions.md
