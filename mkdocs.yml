@@ -145,10 +145,19 @@ nav:
           - "Распределённая система оплаты": practice/practice.md
           - "Шпаргалка": practice/cheatsheet.md
           - "Системы контроля версий и Git": practice/version-control.md
-      - Логистика курса:
           - "Курсовые лабораторные": labs/index.md
-          - "Экзаменационные билеты": tickets/index.md
-          - "Вопросы и ответы": tickets/dsa-questions.md
+      - Справочник вопросов:
+          - exam/index.md
+          - "Алгоритмы и сложность": exam/algorithms.md
+          - "Логические основы": exam/logic.md
+          - "Языки и методы программирования": exam/languages.md
+          - "Данные и представление": exam/data-representation.md
+          - "Python: функции, файлы, обработка ошибок": exam/python.md
+          - "ООП": exam/oop.md
+          - "Шаблоны проектирования": exam/design-patterns.md
+          - "Структуры данных": exam/data-structures.md
+          - "Сортировка и поиск": exam/sorting-search.md
+          - "Тестирование, GUI и конкурентность": exam/quality-gui-concurrency.md
 
 markdown_extensions:
   - admonition
