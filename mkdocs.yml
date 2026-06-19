@@ -1,5 +1,5 @@
-site_name: mti-dsa — Алгоритмы и структуры данных
-site_description: Лабораторные работы и конспект по алгоритмам и структурам данных
+site_name: mti-dsa — Алгоритмы, программирование и Go для SRE/DevOps
+site_description: Структуры данных и алгоритмы (Python и Go), основы программирования и трек Go — база для будущих SRE/DevOps
 site_author: Mikhail Savin
 site_url: https://jtprogru.github.io/mti-dsa/
 

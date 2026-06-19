@@ -1,7 +1,7 @@
 [project]
 name = "mti-dsa"
 version = "0.1.0"
-description = "Лабораторные работы по предмету Алгоритмы и структуры данных"
+description = "Структуры данных и алгоритмы (Python и Go), основы программирования и трек Go — база для будущих SRE/DevOps"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
