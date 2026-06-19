@@ -1,4 +1,4 @@
-site_name: dsa-for-ops — Алгоритмы, программирование и Go для SRE/DevOps
+site_name: Алгоритмы и структуры данных для эксплуатации
 site_description: Структуры данных и алгоритмы (Python и Go), основы программирования и трек Go — база для будущих SRE/DevOps
 site_author: Mikhail Savin
 site_url: https://jtprogru.github.io/dsa-for-ops/
@@ -148,6 +148,7 @@ nav:
       - Логистика курса:
           - "Курсовые лабораторные": labs/index.md
           - "Экзаменационные билеты": tickets/index.md
+          - "Вопросы и ответы": tickets/dsa-questions.md
 
 markdown_extensions:
   - admonition
