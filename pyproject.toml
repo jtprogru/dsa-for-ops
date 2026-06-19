@@ -38,7 +38,7 @@ pythonpath = ["src/python"]
 addopts = "--strict-markers --strict-config --tb=short"
 
 [tool.coverage.run]
-source = ["labs"]
+source = ["labs", "tasks"]
 
 [tool.coverage.report]
 show_missing = true

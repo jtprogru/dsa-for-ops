@@ -2,7 +2,7 @@
 
 Короткие задачи для отработки базового синтаксиса перед лабораторными и DSA-лабами. Цель — набить руку на `for`/`while`, индексации, накоплении результата и работе со списками и словарями.
 
-Заготовки лежат в репозитории: [`src/python/tasks/loops/`](https://github.com/jtprogru/dsa-for-ops/tree/main/src/python/tasks/loops) (`task1.py`–`task7.py`). В каждом файле — условие в докстринге и пустой шаблон с `TODO`. Решение пишется самостоятельно.
+Решения лежат в репозитории: [`src/python/tasks/loops/`](https://github.com/jtprogru/dsa-for-ops/tree/main/src/python/tasks/loops) (`task1.py`–`task7.py`). В каждом файле — условие в докстринге и эталонная реализация в виде чистой функции, а интерактивный ввод-вывод вынесен в блок `if __name__ == "__main__"`. Каждая функция покрыта тестами в [`tests/tasks/loops/`](https://github.com/jtprogru/dsa-for-ops/tree/main/tests/tasks/loops). Чтобы потренироваться самостоятельно — сначала решите задачу, затем сверьтесь с эталоном.
 
 ## Задачи
 
@@ -22,4 +22,4 @@ cd dsa-for-ops/src/python/tasks/loops
 python task1.py
 ```
 
-Открывайте файл, читайте условие в докстринге, заменяйте `TODO` своим кодом. Эти задачи относятся к [Лекции 3. Коллекции](lecture-03-collections.md) и циклам из [Лекции 2](lecture-02-control-flow-io.md).
+Открывайте файл, читайте условие в докстринге, попробуйте написать функцию сами, затем сверьтесь с эталоном и запустите тесты: `uv run pytest tests/tasks/loops`. Эти задачи относятся к [Лекции 3. Коллекции](lecture-03-collections.md) и циклам из [Лекции 2](lecture-02-control-flow-io.md).
