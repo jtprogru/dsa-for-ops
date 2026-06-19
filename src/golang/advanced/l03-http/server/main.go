@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"os"
 	"os/signal"
 	"syscall"
 	"time"
@@ -36,35 +35,50 @@ func loggingMiddleware(next http.Handler) http.Handler {
 	})
 }
 
-func main() {
+// newServer собирает *http.Server с роутингом и middleware.
+func newServer(addr string) *http.Server {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /users/{id}", handleUser)
 	mux.HandleFunc("GET /health", handleHealth)
 
-	srv := &http.Server{
-		Addr:         ":8080",
+	return &http.Server{
+		Addr:         addr,
 		Handler:      loggingMiddleware(mux),
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 		IdleTimeout:  120 * time.Second,
 	}
+}
 
+// run запускает сервер и завершает его gracefully при отмене ctx.
+func run(ctx context.Context, srv *http.Server) error {
+	errCh := make(chan error, 1)
 	go func() {
-		log.Println("listening on :8080")
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("server: %v", err)
+			errCh <- err
 		}
 	}()
 
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
-	<-quit
+	select {
+	case err := <-errCh:
+		return err
+	case <-ctx.Done():
+	}
 
 	log.Println("shutting down...")
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	shutdownCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
-	if err := srv.Shutdown(ctx); err != nil {
-		log.Fatalf("forced shutdown: %v", err)
+	return srv.Shutdown(shutdownCtx)
+}
+
+func main() {
+	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer stop()
+
+	srv := newServer(":8080")
+	log.Println("listening on", srv.Addr)
+	if err := run(ctx, srv); err != nil {
+		log.Fatalf("server: %v", err)
 	}
 	log.Println("server stopped")
 }
