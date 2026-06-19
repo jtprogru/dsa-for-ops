@@ -44,12 +44,19 @@ nav:
       - Конспект: notes.md
       - Roadmap: roadmap.md
       - common — общие утилиты: common.md
+      - lab00 — Python для эксплуатации: lab00.md
       - lab01 — массив и стек: lab01.md
       - lab02 — список, очередь, дерево: lab02.md
       - lab02_random — баланс: lab02_random.md
       - lab03 — сортировки: lab03.md
       - lab04 — поиск: lab04.md
       - lab05 — hash map: lab05.md
+      - lab06 — графы и топосортировка: lab06.md
+      - lab07 — куча и top-K: lab07.md
+      - lab08 — LRU-кэш: lab08.md
+      - lab09 — rate limiting: lab09.md
+      - lab10 — разбор логов: lab10.md
+      - lab11 — consistent hashing и bloom: lab11.md
   - Основы:
       - "Тема 1. Алгоритмизация":
           - foundations/01-algorithm-basics/index.md
