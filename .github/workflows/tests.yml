@@ -24,6 +24,11 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v8.2.0
 
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23"
+
       - name: Run tests
         run: >-
           uv run pytest
@@ -52,6 +57,31 @@ jobs:
           detailed_summary: true
           include_passed: true
 
+      - name: Install gotestsum
+        if: ${{ !cancelled() }}
+        run: go install gotest.tools/gotestsum@latest
+
+      - name: Run Go tests
+        if: ${{ !cancelled() }}
+        run: |
+          for mod in src/golang/*/; do
+            name=$(basename "$mod")
+            echo "==> $mod"
+            (cd "$mod" && gotestsum \
+              --junitfile "$GITHUB_WORKSPACE/go-junit-$name.xml" \
+              --format testname -- ./...) || true
+          done
+
+      - name: Publish Go test report
+        uses: mikepenz/action-junit-report@v6
+        if: ${{ !cancelled() }}
+        with:
+          report_paths: go-junit-*.xml
+          check_name: go test results
+          detailed_summary: true
+          include_passed: true
+          fail_on_failure: true
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
@@ -60,4 +90,5 @@ jobs:
           path: |
             junit.xml
             coverage.xml
+            go-junit-*.xml
           retention-days: 7
