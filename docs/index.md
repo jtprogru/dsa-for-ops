@@ -6,6 +6,7 @@
 
 ## Навигация
 
+- [Roadmap](roadmap.md) — куда развивается курс и под кого: план новых лабораторных с привязкой к практике SRE/DevOps/Ops.
 - [Конспект](notes.md) — общий индекс, сводная таблица сложности и ключевые выводы.
 - [common — общие утилиты](common.md) — переиспользуемые helper'ы `array_length`, `generate_array`, `print_array` и самописный `custom_range` из пакета `labs/common`.
 - [lab01 — массив и стек](lab01.md) — массив без встроенных `len`/`range`/`max`/`sum` и стек (LIFO) на его основе.
