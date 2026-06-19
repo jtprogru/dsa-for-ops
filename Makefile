@@ -4,8 +4,10 @@
 LABS := $(sort $(patsubst labs/%.py,%,$(wildcard labs/lab*.py)))
 # Имя лабораторной, переданное после `run` (например, `make run lab01`)
 RUN_ARGS := $(filter-out run,$(MAKECMDGOALS))
+# Go-модули (каталоги с go.mod внутри src/golang)
+GO_MODULES := $(sort $(dir $(wildcard src/golang/*/go.mod)))
 
-.PHONY: help sync test run clean docs docs-build
+.PHONY: help sync test run clean docs docs-build go-build go-vet go-test
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -40,6 +42,15 @@ docs: ## Запустить локальный сервер документац
 
 docs-build: ## Собрать статический сайт документации в site/
 	uv run --group docs mkdocs build --strict
+
+go-build: ## Собрать все Go-модули (src/golang/*)
+	@for m in $(GO_MODULES); do echo "==> $$m"; (cd $$m && go build ./...) || exit 1; done
+
+go-vet: ## Прогнать go vet по всем Go-модулям
+	@for m in $(GO_MODULES); do echo "==> $$m"; (cd $$m && go vet ./...) || exit 1; done
+
+go-test: ## Прогнать go test по всем Go-модулям
+	@for m in $(GO_MODULES); do echo "==> $$m"; (cd $$m && go test ./...) || exit 1; done
 
 clean: ## Удалить кэш и временные файлы
 	find . -type d -name __pycache__ -exec rm -rf {} +
