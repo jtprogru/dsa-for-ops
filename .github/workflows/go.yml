@@ -29,6 +29,7 @@ jobs:
           - src/golang/basics
           - src/golang/advanced
           - src/golang/dsa
+          - src/golang/tasks
     defaults:
       run:
         working-directory: ${{ matrix.module }}

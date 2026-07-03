@@ -1,5 +1,5 @@
 site_name: Алгоритмы и структуры данных для эксплуатации
-site_description: Структуры данных и алгоритмы (Python и Go), основы программирования и трек Go — база для будущих SRE/DevOps
+site_description: Структуры данных и алгоритмы (Python и Go), основы программирования, трек Go и задачи с собеседований — база для будущих SRE/DevOps
 site_author: Mikhail Savin
 site_url: https://jtprogru.github.io/dsa-for-ops/
 
@@ -139,11 +139,12 @@ nav:
           - "Лекция 3. HTTP-клиент и сервер": go/14-golang-advanced/lecture-03-http.md
           - "Лекция 4. Файлы, JSON, БД": go/14-golang-advanced/lecture-04-files-json-db.md
           - "Лекция 5. Бенчмарки и pprof": go/14-golang-advanced/lecture-05-benchmarks-pprof.md
+  - Собеседования:
+      - interview/index.md
   - Практика:
       - practice/index.md
       - Материалы:
           - "Распределённая система оплаты": practice/practice.md
-          - "Задачи с собеседований": practice/interview.md
           - "Шпаргалка": practice/cheatsheet.md
           - "Системы контроля версий и Git": practice/version-control.md
           - "Курсовые лабораторные": labs/index.md

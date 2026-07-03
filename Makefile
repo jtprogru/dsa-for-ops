@@ -14,7 +14,7 @@ define go_foreach
 @for m in $(GO_MODULES); do echo "==> $$m"; (cd $$m && $(1)) || exit 1; done
 endef
 
-.PHONY: help sync test py-test py-run lint fmt py-newlab cov py-cov go-cov clean docs docs-build \
+.PHONY: help sync test py-test test-interview py-run lint fmt py-newlab cov py-cov go-cov clean docs docs-build \
         go go-build go-vet go-test go-fmt check
 
 help: ## Показать список команд
@@ -28,6 +28,10 @@ test: py-test go-test ## Прогнать все тесты (Python + Go)
 
 py-test: ## Прогнать Python-тесты (pytest)
 	$(UV) run pytest -v
+
+test-interview: ## Прогнать только interview-тесты (Python + Go)
+	$(UV) run pytest tests/tasks/interview -v
+	cd src/golang/tasks && go test -v ./...
 
 lint: ## Проверить Python-код ruff'ом (как в CI)
 	$(UV) run ruff check src tests scripts

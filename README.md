@@ -18,6 +18,7 @@
 - **Основы программирования** — теоретический курс (темы 01–09): алгоритмизация, Python, процедуры и файлы, ООП, IDE, этапы разработки, иерархия классов.
 - **Эксплуатация** — темы 10–12: стандартные модули (HTTP, regex, SQLite, конкурентность), разработка приложений (логирование, Django, standalone), качество кода и тестирование.
 - **Go** — темы 13–14 и самостоятельные модули в `src/golang/`: основы Go и продвинутый трек (конкурентность, `context`, `net/http`, бенчмарки и pprof).
+- **Собеседования** — задачи с собеседований (LeetCode/CodeWars) на Python с тестами и Go-версиями, сгруппированные по структурам данных из лаб. Подробнее — в разделе [«Задачи с собеседований»](#задачи-с-собеседований).
 
 ## Требования
 
@@ -59,6 +60,7 @@ make test                # pytest + coverage
 make go-test             # go test по всем модулям в src/golang
 make go-build            # go build по всем модулям
 make go-vet              # go vet по всем модулям
+make test-interview      # только interview-тесты (Python + Go)
 ```
 
 ## Документация
@@ -93,7 +95,7 @@ src/golang/
   advanced/           # Go — продвинутый трек (тема 14)
   dsa/                # Go-версии lab01–lab05 + table-driven тесты
 tests/                # pytest к каждой лабораторной
-docs/                 # сайт MkDocs (DSA, foundations, ops, go, practice, tickets)
+docs/                 # сайт MkDocs (DSA, foundations, ops, go, interview, practice, tickets)
 mkdocs.yml            # конфигурация сайта документации
 ```
 
@@ -105,6 +107,18 @@ mkdocs.yml            # конфигурация сайта документац
 - **Прикладные под эксплуатацию (`lab00`, `lab06`–`lab11`)** — Python для эксплуатации, графы и топосортировка, куча и top-K, LRU-кэш, rate limiting, разбор логов, consistent hashing и bloom filter.
 
 Подробный разбор каждой структуры (что это, зачем, сложность операций, блок «где это в проде») — в конспекте: <https://jtprogru.github.io/dsa-for-ops/notes/>. Go-версии `lab01`–`lab05` лежат в [`src/golang/dsa/`](src/golang/dsa) с table-driven тестами; конспекты в [docs/](docs/) приводят примеры на Python и Go во вкладках.
+
+## Задачи с собеседований
+
+Если в лабах структуры данных реализуются «с нуля», то здесь они **применяются** — на готовых `dict`, `set`, `list` — для решения классических задач с собеседований (LeetCode/CodeWars). Задачи сгруппированы по структуре, которую закрепляют: хеш-таблица, массив/стек/два указателя, поиск, биты и арифметика.
+
+- Решения на Python: [`src/python/tasks/interview/`](src/python/tasks/interview), тесты — [`tests/tasks/interview/`](tests/tasks/interview).
+- Go-версии: модуль [`src/golang/tasks/`](src/golang/tasks) (пакет `interview`, table-driven тесты рядом с кодом).
+- Разбор задач с идеями и оценками сложности: <https://jtprogru.github.io/dsa-for-ops/interview/>.
+
+```bash
+make test-interview      # прогнать только interview-тесты (Python + Go)
+```
 
 ## Развитие
 
