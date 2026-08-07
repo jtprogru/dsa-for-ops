@@ -85,7 +85,7 @@ flowchart LR
 
 ## Подготовка окружения
 
-1. Установите Python (3.13+) и/или Go (1.23+).
+1. Установите Python (3.13+) и/или Go (1.25+).
 2. Установите [VS Code](../foundations/07-ide-vscode/lecture-01-setup.md) с расширениями Python (Pylance + Ruff + debugpy) и Go (gopls + dlv).
 3. Создайте каталог для проекта.
 4. Откройте каталог в VS Code, инициализируйте `pyproject.toml` через `uv init` (для Python) или `go mod init example.com/payment-system` (для Go).
