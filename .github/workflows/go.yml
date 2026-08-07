@@ -3,25 +3,38 @@ name: go
 on:
   push:
     branches: [main]
-    paths:
-      - "src/golang/**"
-      - ".github/workflows/go.yml"
   pull_request:
-    paths:
-      - "src/golang/**"
-      - ".github/workflows/go.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
+  pull-requests: read
 
 concurrency:
   group: go-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  changes:
+    name: Detect Go changes
+    runs-on: ubuntu-latest
+    outputs:
+      go: ${{ steps.filter.outputs.go }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dorny/paths-filter@v4
+        id: filter
+        with:
+          filters: |
+            go:
+              - "src/golang/**"
+              - ".github/workflows/go.yml"
+
   go:
     name: Go build, vet & test
+    needs: changes
+    if: needs.changes.outputs.go == 'true'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -50,3 +63,24 @@ jobs:
 
       - name: Test
         run: go test -race ./...
+
+  gate:
+    name: Go gate
+    needs: [changes, go]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check matrix result
+        env:
+          CHANGES_RESULT: ${{ needs.changes.result }}
+          GO_RESULT: ${{ needs.go.result }}
+        run: |
+          echo "changes=${CHANGES_RESULT} go=${GO_RESULT}"
+          if [ "${CHANGES_RESULT}" != "success" ]; then
+            echo "::error::change detection did not succeed (${CHANGES_RESULT})"
+            exit 1
+          fi
+          case "${GO_RESULT}" in
+            success|skipped) ;;
+            *) echo "::error::Go matrix did not pass (${GO_RESULT})"; exit 1 ;;
+          esac
