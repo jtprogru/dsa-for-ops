@@ -6,7 +6,7 @@
 [![Сайт курса](https://img.shields.io/badge/site-jtprogru.github.io%2Fdsa--for--ops-2ea44f?logo=github)](https://jtprogru.github.io/dsa-for-ops/)
 [![MkDocs Material](https://img.shields.io/badge/MkDocs-Material-526CFE?logo=materialformkdocs)](https://squidfunk.github.io/mkdocs-material/)
 [![Python 3.14](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Go 1.23](https://img.shields.io/badge/Go-1.23-00ADD8?logo=go&logoColor=white)](https://go.dev/)
+[![Go 1.25](https://img.shields.io/badge/Go-1.25-00ADD8?logo=go&logoColor=white)](https://go.dev/)
 
 База для будущих **SRE / DevOps / Ops**, которые хотят вырасти из bash-скриптов в инженеров-программистов. Репозиторий объединяет три направления: структуры данных и алгоритмы «с нуля» (Python и Go), теоретический курс «Основы алгоритмизации и программирования» и полноценный трек Go.
 
@@ -23,7 +23,7 @@
 ## Требования
 
 - Python >= 3.14 и [uv](https://docs.astral.sh/uv/) для управления зависимостями.
-- Go >= 1.23 для Go-трека и Go-версий лабораторных.
+- Go >= 1.25 для Go-трека и Go-версий лабораторных.
 
 ## Установка
 
